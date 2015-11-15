@@ -109,6 +109,8 @@ qplot(interval, steps, data = activity_interval, geom = &quot;line&quot;)</code>
 <ol start="2" style="list-style-type: decimal">
 <li>The 5-minute interval, on average across all the days in the dataset, which contains the maximun number of steps is 0835.</li>
 </ol>
+<pre class="r"><code>activity_interval$interval[which.max(activity_interval$steps)]</code></pre>
+<pre><code>## [1] 835</code></pre>
 </div>
 <div id="imputing-missing-values" class="section level2">
 <h2>Imputing missing values</h2>

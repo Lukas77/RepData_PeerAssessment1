@@ -72,6 +72,15 @@ qplot(interval, steps, data = activity_interval, geom = "line")
 
 2. The 5-minute interval, on average across all the days in the dataset, which contains the maximun number of steps is 0835.
 
+
+```r
+activity_interval$interval[which.max(activity_interval$steps)]
+```
+
+```
+## [1] 835
+```
+
 ## Imputing missing values
 
 1. The total number of missing values in the dataset (i.e. the total number of rows with NAs) is
@@ -107,7 +116,7 @@ activity_day <- ddply(activity_imp, .(date), summarize, steps = sum(steps))
 qplot(steps, data=activity_day, geom="histogram", binwidth = bw)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-10-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-11-1.png) 
 
 The mean and median total number of steps taken per day
 
@@ -147,4 +156,4 @@ activity_di <- ddply(activity_imp, .(interval, wd), summarize, steps = mean(step
 ggplot(data = activity_di, aes(interval, steps)) + geom_line() + facet_grid(wd ~ .)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-13-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-14-1.png) 
